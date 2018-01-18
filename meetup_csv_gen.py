@@ -38,7 +38,7 @@ def get_api_key():
     """
     with open("api_key.txt", "r+") as f: #open up the txt file and check whether the key is already there
         api_key = f.read()
-        if len(api_key) == 0: #if user did not provide api key, prompt for key manually
+        if len(api_key) < 5: #if user did not provide api key, prompt for key manually
             print("**(You can find your API key for meetup.com at https://secure.meetup.com/meetup_api/key/)")
             print(" ")
             key = input("API key: ")
