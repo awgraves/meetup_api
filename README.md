@@ -13,11 +13,11 @@ Exports a csv file containing rows with the following meetup group information:
 - meetup category (Social, Tech, Arts, etc.)
 - datetime of group creation
 - status (active, grace)
-- # of current members
+- number of current members
 - join mode (open, approval)
-- # of previous events held
+- number of previous events held
 - datetime of most recently past event
-- # of 'yes' rsvps for most recently past event
+- number of 'yes' rsvps for most recently past event
 
 
 ## Getting Started
