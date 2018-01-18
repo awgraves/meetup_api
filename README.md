@@ -1,6 +1,7 @@
 # Automatic CSV File Generator for Meetup.com Data
 
 **Python script**
+
 Prompts user for an API key, zipcode, and search radius (0 - 100 miles).  
 Stores api key in api_key.txt so user only needs to provide this once.
 Exports a csv file containing rows with the following meetup group information:
@@ -27,9 +28,10 @@ Once python is properly installed, simply navigate in a terminal to the repo fol
 python meetup_csv_gen.py
 ```
 You will be prompted for your meetup.com API key the first time you run the script. 
-Find your key at this URL: https://secure.meetup.com/meetup_api/key/
+(Find your key at this URL: https://secure.meetup.com/meetup_api/key/)
 
 Next, enter a zip code followed by a desired search radius.
+
 If you gave valid inputs you will now have the requested data in a clean csv file located in the same folder as the script.
 
 
