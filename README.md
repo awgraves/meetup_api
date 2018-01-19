@@ -1,4 +1,4 @@
-# Automatic CSV File Generator for Meetup.com Data
+# Automatic CSV File Generator for Meetup.com API Data
 
 **Python script**
 
@@ -12,12 +12,12 @@ Exports a csv file containing rows with the following meetup group information:
 - latitude of meetup location
 - longitude of meetup location
 - meetup category (Social, Tech, Arts, etc.)
-- datetime of group creation
+- datetime of group creation (automatically adjusted to the local timezone of the meetup location)
 - status (active, grace)
 - number of current members
 - join mode (open, approval)
 - number of previous events held
-- datetime of most recently past event
+- datetime of most recently past event (adjusted to local time)
 - number of 'yes' rsvps for most recently past event
 
 
@@ -50,11 +50,7 @@ time
 
 ### Installing
 
-I highly recommend the ANACONDA distro that already comes with everything you need to run this script.
-
-```
-https://www.anaconda.com/what-is-anaconda/
-```
+I highly recommend the [ANACONDA distribution](https://www.anaconda.com/what-is-anaconda/), which comes with everything you need.
 
 
 ## Built With
@@ -73,6 +69,6 @@ This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.t
 
 ## Acknowledgments
 
-* [dataquest.io](https://www.dataquest.io/) My main data science self-study resource
-* [PurpleBooth](https://github.com/purplebooth) For the readme template
+* [dataquest.io](https://www.dataquest.io/) My main study resource for data science
+* [PurpleBooth](https://github.com/purplebooth) Thanks for the readme template
 
