@@ -50,7 +50,7 @@ time
 
 ### Installing
 
-I highly recommend the [ANACONDA distribution](https://www.anaconda.com/what-is-anaconda/), which comes with everything you need.
+I highly recommend the [ANACONDA distribution](https://www.anaconda.com/distribution/) of python. It contains everything you will need.
 
 
 ## Built With
