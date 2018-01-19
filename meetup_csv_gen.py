@@ -6,7 +6,7 @@ import datetime as dt
 import time
 
 #=========================================================================================
-# Automatic CSV File Generator for Meetup.com Data
+# Automatic CSV File Generator for Meetup.com API Data
 # Created by: Andrew Graves
 # Date: Jan 17, 2018
 #=========================================================================================
@@ -143,7 +143,7 @@ def convert_to_dt(row):
 #initialize
 banner = """
 #=======================================================
-# Automatic CSV File Generator for Meetup.com Data
+# Automatic CSV File Generator for Meetup.com API Data
 # Created by: Andrew Graves
 # Date: Jan 17, 2018
 #=======================================================
