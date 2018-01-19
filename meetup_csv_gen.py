@@ -50,7 +50,8 @@ def get_api_key():
         else: #otherwise, use the API key from file and notify user
             print("***User API key is on file.***")
             print("")
-            return api_key
+            key = str(api_key)
+            return key
 
 def query_api():
     """Queries the meetup.com API and returns a list of dictionaries containing the requested info on meetup groups.  
@@ -75,7 +76,8 @@ def query_api():
         	print("Server request: OK")
     
         if status == 401: #not ok
-            print("Bad server request!")
+            print("***Bad server request!***")
+            exit()
         
         if status != 200 and status != 401: #else
         	print("Server request: Status Code {}".format(status))
