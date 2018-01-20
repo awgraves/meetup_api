@@ -34,7 +34,7 @@ Exports a csv file containing rows with the following meetup group information:
 def get_api_key():
     """Checks if there is an api_key.txt file in the folder.
     
-    If none exists, prompts the user for an api key, create the txt file, and the key for next time.
+    If none exists, prompts the user for an api key and store it in a newly created file.
     """
     try:
     	with open("api_key.txt", "r") as f: #try to open up the txt file and read in api key
