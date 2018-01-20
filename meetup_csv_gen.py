@@ -32,26 +32,26 @@ Exports a csv file containing rows with the following meetup group information:
 # Meetup.com api instructions can be found here: https://www.meetup.com/meetup_api/docs/find/groups/
 
 def get_api_key():
-    """Checks if there is an api key specified in api_key.txt
+    """Checks if there is an api_key.txt file in the folder.
     
-    If none exists, prompts the user for one and stores the answer in the config file for next time.
+    If none exists, prompts the user for an api key, create the txt file, and the key for next time.
     """
-    with open("api_key.txt", "r+") as f: #open up the txt file and check whether the key is already there
-        api_key = f.read()
-        if len(api_key) < 5: #if user did not provide api key, prompt for key manually
-            print("**(You can find your API key for meetup.com at https://secure.meetup.com/meetup_api/key/)")
-            print(" ")
-            key = input("API key: ")
-        
-            f.write(key) #write the user input to the api_key.txt file for later use
-        
-            return key
+    try:
+    	with open("api_key.txt", "r") as f: #try to open up the txt file and read in api key
+        	api_key = f.read()
+        	print("***User API key is on file.***")
+        	print("")
+        	key = str(api_key)
+        	return key
+    except: #if file does not already exist
+    	with open("api_key.txt", "w+") as f: #create the file
+    		print("**(You can find your API key for meetup.com at https://secure.meetup.com/meetup_api/key/)")
+    		print(" ")
+    		key = input("API key: ") #prompt user for api key
+    		
+    		f.write(key) #write the user input to the api_key.txt file for later use
+    		return key
 
-        else: #otherwise, use the API key from file and notify user
-            print("***User API key is on file.***")
-            print("")
-            key = str(api_key)
-            return key
 
 def query_api():
     """Queries the meetup.com API and returns a list of dictionaries containing the requested info on meetup groups.  
@@ -125,7 +125,6 @@ def convert_to_df(raw_data):
                 last = each["last_event"]
                 each["last_rsvp"] = int(last["yes_rsvp_count"]) #make a new, separate dict key for the rsvp count
                 each["last_event"] = int(last["time"] + utc_offset) #correct the last event date with UTC offset
-
             
         data = pd.DataFrame(raw_data[i]) #convert to a df
         all_dfs.append(data)#add to our master list
