@@ -15,7 +15,7 @@ Stores api key in api_key.txt for later user.
 Exports a csv file containing rows with the following meetup group information:
 
 - name of group
-- group id
+- group url (used as the main group identifier for the meetup API)
 - city
 - latitude of meetup location
 - longitude of meetup location
@@ -65,7 +65,7 @@ def query_api():
     raw_data = [] #create our list to eventually return
     
     while finished == False: #keep looping until we run out of data to find
-        parameters = {"key":key, "sign":"true", "page":"200", "offset":batch, "zip":zip, "radius":radius, "only":"category,created,id,city,join_mode,last_event,members,name,past_event_count,status,lat,lon", "fields":"last_event,past_event_count"}
+        parameters = {"key":key, "sign":"true", "page":"200", "offset":batch, "zip":zip, "radius":radius, "only":"category,created,urlname,city,join_mode,last_event,members,name,past_event_count,status,lat,lon", "fields":"last_event,past_event_count"}
 
         response = requests.get("https://api.meetup.com/find/groups", params = parameters) #make the API request
         status = response.status_code #get the status of our request
@@ -167,7 +167,7 @@ raw_data = query_api()
 df = convert_to_df(raw_data)
 
 #Reorder the columns
-cols = ["name","id","city","lat","lon","category","created","status","members","join_mode","past_event_count","last_event","last_rsvp"]
+cols = ["name","urlname","city","lat","lon","category","created","status","members","join_mode","past_event_count","last_event","last_rsvp"]
 df = df[cols]
 
 #convert the timestamp values in "created" and "last_event" columns to datetime objects

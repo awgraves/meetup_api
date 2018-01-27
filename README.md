@@ -7,7 +7,7 @@ Stores api key in api_key.txt so user only needs to provide this once.
 Exports a csv file containing rows with the following meetup group information:
 
 - name of group
-- group id
+- group url name
 - city
 - latitude of meetup location
 - longitude of meetup location
